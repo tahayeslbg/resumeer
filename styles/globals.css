@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: theme(colors.secondary.DEFAULT);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: theme(colors.primary.DEFAULT);
+}
+
+.range-input::-webkit-slider-thumb {
+  @apply bg-slate-100 dark:bg-slate-900 ring ring-slate-900 dark:ring-slate-100 h-4 w-4 rounded-full appearance-none cursor-pointer;
+}
+
+.range-input::-moz-range-thumb {
+  @apply bg-slate-100 dark:bg-slate-900 ring ring-slate-900 dark:ring-slate-100 h-4 w-4 rounded-full appearance-none;
+}
+
+.range-input::-ms-thumb {
+  @apply bg-slate-100 dark:bg-slate-900 ring ring-slate-900 dark:ring-slate-100 h-4 w-4 rounded-full appearance-none;
+}
