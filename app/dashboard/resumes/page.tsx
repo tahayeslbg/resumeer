@@ -34,7 +34,7 @@ const ResumesPage = async () => {
       <div className="w-full max-w-7xl my-10 mx-auto">
         <ResumesPageHeader />
         <div className="grid grid-cols-2 gap-10 mt-10  sm:grid-cols-1">
-          {resumes.data.length !== 0 ? (
+          {resumes.data.length !== 0 && resumes.success ?  (
             resumes.data.map((resume: any, i: number) => (
               <div key={i} className="flex items-start space-x-5">
                 <div className="border border-border">
