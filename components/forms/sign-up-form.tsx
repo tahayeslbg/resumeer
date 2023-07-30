@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useTransition } from "react"
+import { useRouter } from "next/navigation"
 import { signUpValidation } from "@/validations/authValidation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -27,6 +28,7 @@ import { PasswordInput } from "../ui/password-input"
 const SignUpForm = () => {
   const [isPending, startTransition] = useTransition()
   const { toast } = useToast()
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof signUpValidation>>({
     resolver: zodResolver(signUpValidation),
@@ -48,7 +50,7 @@ const SignUpForm = () => {
           variant: "destructive",
         })
       } else {
-        window.location.replace("/dashboard/resumes")
+       return router.push("/dashboard/resumes")
       }
     })
   }

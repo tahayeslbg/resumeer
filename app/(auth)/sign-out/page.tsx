@@ -29,7 +29,6 @@ const SignOutPage = () => {
           variant: "destructive",
         })
       }
-      router.refresh()
       window.location.reload()
     })
   }

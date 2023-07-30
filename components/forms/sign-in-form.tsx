@@ -23,12 +23,14 @@ import { signInAction } from "@/app/actions"
 import { Icons } from "../icons"
 import { PasswordInput } from "../ui/password-input"
 import { useToast } from "../ui/use-toast"
+import { useRouter } from "next/navigation"
 
 interface SignInForm {}
 
 const SignInForm = () => {
   const [isPending, startTransition] = useTransition()
   const { toast } = useToast()
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof signInValidation>>({
     resolver: zodResolver(signInValidation),
@@ -43,12 +45,13 @@ const SignInForm = () => {
     startTransition(async () => {
       const actionResult = await signInAction(values)
       if (!actionResult.success) {
+        console.log(actionResult)
         toast({
           description: actionResult.errorMessage,
           variant: "destructive",
         })
       } else {
-        window.location.replace("/dashboard/resumes")
+        return router.push("/dashboard/resumes")
       }
     })
   }

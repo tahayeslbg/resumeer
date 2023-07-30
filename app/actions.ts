@@ -28,6 +28,7 @@ export async function signInAction(formData: z.infer<typeof signInValidation>) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userBody),
+      cache: "no-store"
     }
   )
   const user = await userRes.json()
@@ -66,6 +67,7 @@ export async function signUpAction(formData: z.infer<typeof signUpValidation>) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
+      cache: "no-store"
     }
   )
   const user = await userRes.json()
@@ -87,13 +89,17 @@ export async function signUpAction(formData: z.infer<typeof signUpValidation>) {
 
 export async function logoutAction() {
   const token = cookies().get("auth")?.value as string
-  const userRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/logout`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  })
+  const userRes = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/logout`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      
+    }
+  )
   const user = await userRes.json()
   if (user.success === true) {
     cookies().delete("auth")
@@ -110,6 +116,7 @@ export async function forgotPasswordAction(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
+      cache: "no-store"
     }
   )
   const confirmationCode = await confirmationCodeRes.json()
@@ -125,6 +132,7 @@ export async function resetPasswordAction(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
+      cache: "no-store"
     }
   )
   const resetPassword = await resetPasswordRes.json()

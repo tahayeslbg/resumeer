@@ -32,7 +32,6 @@ const SignOutDialog = () => {
           variant: "destructive",
         })
       }
-      router.refresh()
       window.location.reload()
     })
   }
