@@ -21,6 +21,7 @@ const Step1: FC = () => {
       window.removeEventListener("beforeunload", handleBeforeUnload)
     }
   }, [])
+
   const templateId = useAppSelector(
     (state: RootState) => state.resume.templateId
   )

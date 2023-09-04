@@ -12,11 +12,8 @@ const Footer = () => {
           Resumeer - Bütün hakları saklıdır
         </div>
         <div className="flex justify-center space-x-4">
-          <Link href="/" className="text-sm hover:underline">
+          <Link href="/gizlilik-politikasi" className="text-sm hover:underline">
             Gizlilik Politikası
-          </Link>
-          <Link href="/" className="text-sm hover:underline">
-            Kullanım Koşulları
           </Link>
         </div>
       </div>

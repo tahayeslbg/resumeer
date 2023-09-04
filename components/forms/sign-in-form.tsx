@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useTransition } from "react"
+import { useRouter } from "next/navigation"
 import { signInValidation } from "@/validations/authValidation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -23,7 +24,6 @@ import { signInAction } from "@/app/actions"
 import { Icons } from "../icons"
 import { PasswordInput } from "../ui/password-input"
 import { useToast } from "../ui/use-toast"
-import { useRouter } from "next/navigation"
 
 interface SignInForm {}
 
@@ -45,7 +45,6 @@ const SignInForm = () => {
     startTransition(async () => {
       const actionResult = await signInAction(values)
       if (!actionResult.success) {
-        console.log(actionResult)
         toast({
           description: actionResult.errorMessage,
           variant: "destructive",
@@ -93,7 +92,7 @@ const SignInForm = () => {
               <FormControl>
                 <Checkbox
                   checked={field.value}
-                  onCheckedChange={(checked) =>
+                  onCheckedChange={(checked: boolean) =>
                     field.onChange(checked === true)
                   }
                 />
@@ -104,7 +103,12 @@ const SignInForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className={cn("w-full ")} disabled={isPending}>
+        <Button
+          size="lg"
+          type="submit"
+          className={cn("w-full ")}
+          disabled={isPending}
+        >
           {isPending && (
             <Icons.loader
               width={16}

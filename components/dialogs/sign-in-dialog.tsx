@@ -28,7 +28,9 @@ const SignInDialog = () => {
       open={pathname.includes("/sign-in") ? true : false}
       defaultOpen={pathname.includes("/sign-in") ? true : false}
       onOpenChange={() =>
-        redirectUrl ? router.replace(`${redirectUrl}`) : router.replace("/")
+        redirectUrl
+          ? router.replace(`${redirectUrl}`, { scroll: false })
+          : router.replace("/", {scroll: false})
       }
     >
       <DialogContent>

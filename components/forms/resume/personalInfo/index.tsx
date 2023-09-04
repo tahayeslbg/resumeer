@@ -73,11 +73,11 @@ const PersonalInfoForm = () => {
                 name="profilePhoto"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mb-1.5 self-start">
+                    <FormLabel className="mb-1.5 self-start text-muted-foreground cursor-not-allowed">
                       Profil Fotoğrafı
                     </FormLabel>
                     <div className="flex space-x-4">
-                      <div className="w-10 h-10 rounded-full bg-slate-800 shrink-0" />
+                      <div className="w-10 h-10 rounded-full bg-slate-800 shrink-0 cursor-not-allowed" />
                       <FormControl>
                         <Input
                           type="file"
@@ -89,6 +89,7 @@ const PersonalInfoForm = () => {
                               event.target.value
                             )
                           }}
+                          disabled
                         />
                       </FormControl>
                     </div>

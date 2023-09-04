@@ -3,7 +3,6 @@
 import React, { useState } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
-
 import ForgotPasswordForm from "../forms/forgot-password-form"
 import {
   Dialog,
@@ -52,7 +51,9 @@ const ForgotPasswordDialog = () => {
       open={pathname.includes("/forgot-password") ? true : false}
       defaultOpen={pathname.includes("/forgot-password") ? true : false}
       onOpenChange={() =>
-        redirectUrl ? router.replace(`${redirectUrl}`) : router.replace("/")
+        redirectUrl
+          ? router.replace(`${redirectUrl}`, { scroll: false })
+          : router.replace("/", { scroll: false })
       }
     >
       <DialogContent>

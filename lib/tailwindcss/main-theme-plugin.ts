@@ -76,6 +76,24 @@ const mainThemePlugin = plugin(
           padding: "0 80px",
         },
       },
+      ".blog_container": {
+        maxWidth: "1280px",
+        padding: "0 40px",
+        margin: "0 auto",
+        width: "100%",
+        "@screen sm": {
+          padding: "0 25px",
+        },
+        "@screen md": {
+          padding: "0 40px",
+        },
+        "@screen lg": {
+          padding: "0 60px",
+        },
+        "@screen xl": {
+          padding: "0 120px",
+        },
+      },
     })
   },
   //Create Theme etc.
@@ -136,9 +154,11 @@ const mainThemePlugin = plugin(
           seperator: "2fr 0.7fr 2fr",
         },
         backgroundImage: {
-          "call-to-action-light": "url('../public/images/call_to_action_light_img.png')",
-          "call-to-action-dark": "url('../public/images/call_to_action_dark_img.png')",
-        }
+          "call-to-action-light":
+            "url('../public/images/call_to_action_light_img.png')",
+          "call-to-action-dark":
+            "url('../public/images/call_to_action_dark_img.png')",
+        },
       },
     },
   }

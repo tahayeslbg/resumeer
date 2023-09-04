@@ -1,35 +1,22 @@
 "use client"
 
-import React, { useEffect } from "react"
+import React from "react"
+import { usePathname } from "next/navigation"
 import { useAppSelector } from "@/redux/hooks"
 import { RootState } from "@/redux/store"
 
 import Step1 from "./step-1"
 import Step2 from "./step-2"
 import Step3 from "./step-3"
-import { usePathname } from "next/navigation"
 
 const ResumeSteps = () => {
   const pathname = usePathname()
-  useEffect(() => {
-    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-      event.preventDefault()
-      event.returnValue =
-        "Değişiklikleriniz kaydedilmemiş olabilir. Sayfayı yenilemek istediğinize emin misiniz?"
-    }
-
-    window.addEventListener("beforeunload", handleBeforeUnload)
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload)
-    }
-  }, [])
 
   const currentStep = useAppSelector((state: RootState) =>
-    pathname.includes("create") ? state.resumeSteps.createResumeCurrentStep : state.resumeSteps.editResumeCurrentStep 
-  ) 
-
-
+    pathname.includes("create")
+      ? state.resumeSteps.createResumeCurrentStep
+      : state.resumeSteps.editResumeCurrentStep
+  )
 
   let stepComponent
 

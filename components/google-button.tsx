@@ -16,14 +16,13 @@ const GoogleButton: FC<IGoogleButton> = ({ className }) => {
     window.open(googleLoginURL, "_self", "width=500,height=600")
   }
   return (
-    <Button
-      variant={"secondary"}
-      className={className}
+    <button
+      className={`bg-white flex justify-center items-center border py-3 text-sm text-slate-900 font-medium rounded-md ${className}`}
       onClick={handleGoogleAuth}
     >
       <Icons.google className="mr-2" />
       Google ile devam et
-    </Button>
+    </button>
   )
 }
 

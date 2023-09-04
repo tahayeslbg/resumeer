@@ -50,7 +50,7 @@ const SignUpForm = () => {
           variant: "destructive",
         })
       } else {
-       return router.push("/dashboard/resumes")
+        return router.push("/dashboard/resumes")
       }
     })
   }
@@ -135,7 +135,12 @@ const SignUpForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className={cn("w-full ")} disabled={isPending}>
+        <Button
+          size="lg"
+          type="submit"
+          className={cn("w-full ")}
+          disabled={isPending}
+        >
           {isPending && (
             <Icons.loader
               width={16}

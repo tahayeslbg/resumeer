@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useTransition } from "react"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { RootState } from "@/redux/store"
 import { changeFullnameValidation } from "@/validations/userValidation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -20,10 +22,6 @@ import { changeFullNameAction } from "@/app/actions"
 
 import { Icons } from "../icons"
 import { useToast } from "../ui/use-toast"
-import { useAppDispatch, useAppSelector } from "@/redux/hooks"
-import { RootState } from "@/redux/store"
-
-
 
 const ChangeFullnameForm = () => {
   const [isPending, startTransition] = useTransition()
@@ -44,6 +42,7 @@ const ChangeFullnameForm = () => {
           variant: "destructive",
         })
       } else {
+        form.reset()
         toast({
           description: actionResult.message,
         })
@@ -52,7 +51,6 @@ const ChangeFullnameForm = () => {
   }
 
   const fullName = useAppSelector((state: RootState) => state.user.fullName)
-
 
   return (
     <div>

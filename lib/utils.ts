@@ -47,3 +47,27 @@ export async function downloadCV(template: ResumeTemplatesConfig) {
     }
   }
 }
+
+export const convertTurkishToEnglish = (inputString: string): string => {
+  let turkishToEnglishMap: { [key: string]: string } = {
+    ç: "c",
+    Ç: "C",
+    ğ: "g",
+    Ğ: "G",
+    ş: "s",
+    Ş: "S",
+    ü: "u",
+    Ü: "U",
+    ı: "i",
+    İ: "I",
+    ö: "o",
+    Ö: "O",
+  }
+  for (let key in turkishToEnglishMap) {
+    inputString = inputString.replace(
+      new RegExp(key, "g"),
+      turkishToEnglishMap[key]
+    )
+  }
+  return inputString
+}

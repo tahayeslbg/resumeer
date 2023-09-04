@@ -5,14 +5,15 @@ export async function middleware(req: NextRequest) {
   const { nextUrl, cookies } = req
   const { pathname, origin } = nextUrl
   const token = cookies.has("auth")
-  // Authenticated Route Flow
 
+  // Authenticated Route Flow
   if (token) {
     // Login & Register Route Flow
     if (
       pathname.includes("/sign-in") ||
       pathname.includes("/sign-up") ||
-      pathname.endsWith("/")
+      pathname.endsWith("/") ||
+      pathname.includes("/blog")
     ) {
       return NextResponse.redirect(`${origin}/dashboard/resumes`)
     }

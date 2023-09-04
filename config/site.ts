@@ -8,9 +8,9 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "En İyi Yapay Zeka Destekli CV Oluşturucu - Profesyonel CV Şablonları ve Özgeçmiş İncelemesi | Resumeer",
+  name: "Yapay Zeka CV Oluşturucu - Özgeçmiş Hazırlama | Resumeer",
   description:
-    "Yapay zeka destekli CV oluşturucu ile profesyonel bir CV oluşturun. Özelleştirilebilir şablonlar, özgeçmiş incelemesi ve diğer özelliklerle iş başvurularınızı güçlendirin. Hemen ücretsiz deneyin ve özgeçmişinizi en iyi şekilde sunun!",
+    "Kariyerinizi parlatacak yapay zeka destekli CV oluşturucu! Profesyonel özgeçmişinizi anında hazırlayın. CV, özgeçmiş oluşturucu ve yapay zeka ile daha etkileyici başvurular.",
   routes: [
     {
       title: "Kayıt ol",

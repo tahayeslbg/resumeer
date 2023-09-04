@@ -11,7 +11,21 @@ export const changeFullnameValidation = z
       .min(5, {
         message: "Ad soyad minimum 5 karakter olmalıdır.",
       })
-      .max(40, { message: "Ad soyad maksimum 40 karakter olmalıdır." }),
+      .max(40, { message: "Ad soyad maksimum 40 karakter olmalıdır." })
+      .refine(
+        (value) => {
+          const words = value.split(" ")
+
+          if (words.length === 1) {
+            return false
+          }
+
+          return true
+        },
+        {
+          message: "Ad soyad en az 2 kelime olmalıdır.",
+        }
+      ),
   })
   .required()
 
@@ -59,6 +73,6 @@ export const changePasswordValidation = z
     path: ["passwordConfirm"],
   })
 
-  export const changeNotificationValidation = z.object({
-    isEmailSubscribe: z.boolean()
-  })
+export const changeNotificationValidation = z.object({
+  isEmailSubscribe: z.boolean(),
+})

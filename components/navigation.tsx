@@ -26,6 +26,7 @@ export function Navigation({ items }: NavigationProps) {
                 href={item.href + "?redirectUrl=" + pathname}
                 className={buttonVariants({
                   variant: item.variant ? item.variant : "link",
+                  className: "lg:w-full md:w-full sm:w-full",
                 })}
               >
                 {item.title}
